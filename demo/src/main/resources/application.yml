@@ -1,0 +1,7 @@
+server:
+  port: 8080
+  tomcat:
+    max-connections: 10000
+  servlet:
+    session:
+      timeout: 32m
