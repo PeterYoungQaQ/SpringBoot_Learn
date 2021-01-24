@@ -11,7 +11,6 @@ public class User {
 
     private String username;
 
-    @JsonIgnore
     private String pwd;
 
     public User(int id, String username, String pwd){
