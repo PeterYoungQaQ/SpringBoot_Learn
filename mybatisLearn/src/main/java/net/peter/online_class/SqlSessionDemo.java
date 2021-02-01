@@ -29,12 +29,18 @@ public class SqlSessionDemo {
 
             VideoMapper videoMapper = sqlSession.getMapper(VideoMapper.class);
 
-            Video video = videoMapper.selectById(44);
+            // 通过Mapper方式进行查询
+//            Video video = videoMapper.selectById(44);
+//
+//            System.out.println(video.toString());
 
-            List<Video> videoList = videoMapper.selectList();
+            // 通过@Select注解查询
+//            List<Video> videoList = videoMapper.selectList();
+//            System.out.println(videoList.toString());
 
-            System.out.println(video.toString());
-            System.out.println(videoList.toString());
+            // 通过mapper方式进行多个参数查询
+            List<Video> videosList = videoMapper.selectByPointAndTitleLike(8.7,"全新");
+            System.out.println(videosList.toString());
 
         }
     }

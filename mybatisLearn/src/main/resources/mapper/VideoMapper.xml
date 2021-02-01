@@ -19,4 +19,9 @@ mybatis是使用接口动态代理
         select * from video where id = #{video_id}
     </select>
 
+    <select id="selectByPointAndTitleLike" resultType="net.peter.online_class.domain.Video">
+
+        select * from video where point = #{point} and title like concat('%',#{title},'%')
+
+    </select>
 </mapper>

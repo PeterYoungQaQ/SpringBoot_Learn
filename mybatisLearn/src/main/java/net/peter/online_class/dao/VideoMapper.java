@@ -21,4 +21,12 @@ public interface VideoMapper {
      */
     @Select("select * from video")
     List<Video> selectList();
+
+    /**
+     * 根据评分和标题选择视频
+     * @param point
+     * @param title
+     * @return
+     */
+    List<Video> selectByPointAndTitleLike(@Param("point") double point, @Param("title") String title);
 }
