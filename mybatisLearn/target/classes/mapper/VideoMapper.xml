@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!--
+namespace:名称空间，一般是需要保持全局唯一，最好是和dao层的java接口一致，
+可以映射sql语句到对应的方法名称和参数返回 类型
+
+mybatis是使用接口动态代理
+-->
+<mapper namespace="net.peter.online_class.dao.VideoMapper">
+    <select id="selectById" resultType="net.peter.online_class.domain.Video">
+        <!--
+            statement sql,
+            id:当前mapper下需要唯一
+            resultType：sql查询结果集
+        -->
+        select * from video where id = #{video_id}
+    </select>
+
+</mapper>
