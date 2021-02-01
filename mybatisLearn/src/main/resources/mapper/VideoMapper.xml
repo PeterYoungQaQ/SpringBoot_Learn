@@ -10,18 +10,18 @@ namespace:名称空间，一般是需要保持全局唯一，最好是和dao层�
 mybatis是使用接口动态代理
 -->
 <mapper namespace="net.peter.online_class.dao.VideoMapper">
-    <select id="selectById" resultType="net.peter.online_class.domain.Video">
+    <select id="selectById" parameterType="java.lang.Integer" resultType="net.peter.online_class.domain.Video">
         <!--
             statement sql,
             id:当前mapper下需要唯一
             resultType：sql查询结果集
         -->
-        select * from video where id = #{video_id}
+        select * from video where id = #{video_id,jdbcType=INTEGER}
     </select>
 
     <select id="selectByPointAndTitleLike" resultType="net.peter.online_class.domain.Video">
 
-        select * from video where point = #{point} and title like concat('%',#{title},'%')
+        select * from video where point = #{point,jdbcType=DOUBLE} and title like concat('%',#{title,jdbcType=VARCHAR},'%')
 
     </select>
 </mapper>

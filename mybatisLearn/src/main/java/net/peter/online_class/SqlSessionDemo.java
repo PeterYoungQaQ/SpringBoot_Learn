@@ -39,7 +39,7 @@ public class SqlSessionDemo {
 //            System.out.println(videoList.toString());
 
             // 通过mapper方式进行多个参数查询
-            List<Video> videosList = videoMapper.selectByPointAndTitleLike(8.7,"全新");
+            List<Video> videosList = videoMapper.selectByPointAndTitleLike(9.1,"");
             System.out.println(videosList.toString());
 
         }
