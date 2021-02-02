@@ -29,4 +29,17 @@ public interface VideoMapper {
      * @return
      */
     List<Video> selectByPointAndTitleLike(@Param("point") double point, @Param("title") String title);
+
+    /**
+     * 新增一条视频记录
+     * @param video
+     */
+    int add(Video video);
+
+    /**
+     * 批量插入视频记录
+     * @param videoList
+     * @return
+     */
+    int addBatch(List<Video> videoList);
 }

@@ -24,4 +24,32 @@ mybatis是使用接口动态代理
         select * from video where point = #{point,jdbcType=DOUBLE} and title like concat('%',#{title,jdbcType=VARCHAR},'%')
 
     </select>
+
+    <insert id="add" parameterType="net.peter.online_class.domain.Video"
+            useGeneratedKeys="true" keyProperty="id" keyColumn="id">
+
+        INSERT INTO `video` ( `title`, `summary`, `cover_img`, `price`, `create_time`, `c_id`, `point`)
+        VALUES
+        (#{title,jdbcType=VARCHAR},#{summary,jdbcType=VARCHAR},#{cover_img,jdbcType=VARCHAR},#{price,jdbcType=INTEGER},
+         #{create_time,jdbcType=TIMESTAMP},#{c_id,jdbcType=INTEGER},#{point,jdbcType=DOUBLE});
+
+    </insert>
+
+
+    <!--批量插入-->
+    <insert id="addBatch" parameterType="net.peter.online_class.domain.Video" useGeneratedKeys="true" keyProperty="id" keyColumn="id" >
+
+    INSERT INTO `video` ( `title`, `summary`, `cover_img`, `price`, `create_time`, `point`)
+    VALUES
+
+    <foreach collection="list" item="video" separator=",">
+
+        (#{video.title,jdbcType=VARCHAR},#{video.summary,jdbcType=VARCHAR},#{video.cover_img,jdbcType=VARCHAR},
+        #{video.price,jdbcType=INTEGER},
+        #{video.create_time,jdbcType=TIMESTAMP},#{video.point,jdbcType=DOUBLE})
+
+    </foreach>
+
+    </insert>
+
 </mapper>

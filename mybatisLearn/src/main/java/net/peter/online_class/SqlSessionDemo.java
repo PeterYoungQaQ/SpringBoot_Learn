@@ -10,6 +10,8 @@ import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class SqlSessionDemo {
@@ -39,8 +41,45 @@ public class SqlSessionDemo {
 //            System.out.println(videoList.toString());
 
             // 通过mapper方式进行多个参数查询
-            List<Video> videosList = videoMapper.selectByPointAndTitleLike(9.1,"");
-            System.out.println(videosList.toString());
+//            List<Video> videosList = videoMapper.selectByPointAndTitleLike(9.1,"");
+//            System.out.println(videosList.toString());
+
+
+//            // 通过mapper方法新增一条视频记录
+//            Video videoAdd1 = new Video();
+//            videoAdd1.setTitle("浩然同学");
+//            videoAdd1.setCover_img("aa.png");
+//            videoAdd1.setPoint(9.4);
+//            videoAdd1.setC_id(20);
+//            videoAdd1.setPrice(850);
+//            videoAdd1.setCreate_time(new Date());
+//            videoAdd1.setSummary("帅的不谈");
+//
+////            int rows1 = videoMapper.add(videoAdd1);
+////            System.out.println(rows1);
+////
+////            System.out.println(videoAdd1.toString());
+//
+//            Video videoAdd2 = new Video();
+//            videoAdd2.setTitle("浩然同学2");
+//            videoAdd2.setCover_img("aa2.png");
+//            videoAdd2.setPoint(9.3);
+//            videoAdd2.setC_id(18);
+//            videoAdd2.setPrice(1050);
+//            videoAdd2.setCreate_time(new Date());
+//            videoAdd2.setSummary("帅的不谈2");
+//
+//            // 通过mapper方法，新增多条视频数据
+//            List<Video> videoList = new ArrayList<>();
+//
+//            videoList.add(videoAdd1);
+//            videoList.add(videoAdd2);
+//
+//            int rows2 = videoMapper.addBatch(videoList);
+//            System.out.println(rows2);
+//
+//            System.out.println(videoList.toString());
+
 
         }
     }
