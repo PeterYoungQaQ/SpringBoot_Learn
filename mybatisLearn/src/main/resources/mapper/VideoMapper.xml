@@ -78,4 +78,40 @@ mybatis是使用接口动态代理
 
     </update>
 
+
+    <!-- 动态更新-->
+    <update id="updateVideoSelective" parameterType="net.peter.online_class.domain.Video">
+
+        update video
+
+        <trim prefix="set" suffixOverrides=",">
+
+            <if test="title != null "> title = #{title,jdbcType=VARCHAR},</if>
+
+            <if test="summary != null "> summary = #{summary,jdbcType=VARCHAR},</if>
+
+            <if test="cover_img != null "> cover_img = #{cover_img,jdbcType=VARCHAR},</if>
+
+            <if test="price != 0 "> price = #{price,jdbcType=INTEGER},</if>
+
+            <if test="create_time !=null "> create_time = #{create_time,jdbcType=TIMESTAMP},</if>
+
+            <!-- 特别注意： 一定要看pojo类里面的是基本数据类型，还是包装数据类型-->
+            <!-- 比如说要!=null，实体类就要用DOUBLE，而不能用double-->
+            <if test="point != null "> point = #{point,jdbcType=DOUBLE},</if>
+
+        </trim>
+
+        where
+        id = #{id}
+
+    </update>
+
+    <!-- 删除操作-->
+    <delete id="deleteByCreateTimeAndPrice" parameterType="java.util.Map">
+
+        delete from video where create_time <![CDATA[ > ]]> #{create_time} and price <![CDATA[ >= ]]> #{price}
+
+    </delete>
+
 </mapper>

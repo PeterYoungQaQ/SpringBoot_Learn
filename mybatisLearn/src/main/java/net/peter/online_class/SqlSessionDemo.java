@@ -10,9 +10,7 @@ import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
 public class SqlSessionDemo {
 
@@ -88,6 +86,24 @@ public class SqlSessionDemo {
 //            videoUpdate.setId(59);
 //
 //            videoMapper.updateVideo(videoUpdate);
+
+            // 通过mapper方法进行选择性更新update操作
+//            Video videoUpdate = new Video();
+//            videoUpdate.setCover_img("baidu.com");
+//            videoUpdate.setTitle("今天天气很好!");
+//            videoUpdate.setId(60);
+//
+//            videoMapper.updateVideoSelective(videoUpdate);
+
+//            // 根据时间和价格因素来删除记录
+//            Map<String, Object> map = new HashMap<>();
+//
+//            map.put("create_time","2021-01-11 09:33:20");
+//            map.put("price",100);
+//
+//            int rows = videoMapper.deleteByCreateTimeAndPrice(map);
+//
+//            System.out.println(rows);
 
 
         }
