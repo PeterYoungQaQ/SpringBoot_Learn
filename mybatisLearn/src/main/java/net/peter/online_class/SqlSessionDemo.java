@@ -81,6 +81,15 @@ public class SqlSessionDemo {
 //            System.out.println(videoList.toString());
 
 
+//            // 通过mapper方法进行更新update操作
+//            Video videoUpdate = new Video();
+//            videoUpdate.setCover_img("baidu.com");
+//            videoUpdate.setTitle("今天天气很好!!");
+//            videoUpdate.setId(59);
+//
+//            videoMapper.updateVideo(videoUpdate);
+
+
         }
     }
 }

@@ -52,4 +52,30 @@ mybatis是使用接口动态代理
 
     </insert>
 
+    <!--插入操作-->
+    <update id="updateVideo" parameterType="net.peter.online_class.domain.Video">
+
+        UPDATE video
+
+        set
+            title = #{title,jdbcType=VARCHAR},
+
+            summary = #{summary,jdbcType=VARCHAR},
+
+            cover_img = #{cover_img,jdbcType=VARCHAR},
+
+            price = #{price,jdbcType=INTEGER},
+
+            c_id = #{c_id,jdbcType=INTEGER},
+
+            point = #{point,jdbcType=INTEGER},
+
+            create_time = now()
+
+        WHERE
+
+            id = #{id}
+
+    </update>
+
 </mapper>

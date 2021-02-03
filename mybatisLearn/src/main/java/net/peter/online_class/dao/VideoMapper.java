@@ -42,4 +42,11 @@ public interface VideoMapper {
      * @return
      */
     int addBatch(List<Video> videoList);
+
+    /**
+     * 更新视频记录
+     * @param video
+     * @return
+     */
+    int updateVideo(Video video);
 }
