@@ -75,5 +75,16 @@ public class User {
         this.createTime = createTime;
     }
 
-
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", pwd='" + pwd + '\'' +
+                ", headImg='" + headImg + '\'' +
+                ", phone='" + phone + '\'' +
+                ", createTime=" + createTime +
+                ", videoOrderList=" + videoOrderList +
+                '}';
+    }
 }
