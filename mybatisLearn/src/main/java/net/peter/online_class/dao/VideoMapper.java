@@ -24,6 +24,13 @@ public interface VideoMapper {
     List<Video> selectList();
 
     /**
+     * 查询部分字段
+     * @param video
+     * @return
+     */
+    int selectListByXML(Video video);
+
+    /**
      * 根据评分和标题选择视频
      * @param point
      * @param title
