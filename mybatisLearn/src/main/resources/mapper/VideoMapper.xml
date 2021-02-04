@@ -108,7 +108,7 @@ mybatis是使用接口动态代理
     </update>
 
     <!-- 删除操作-->
-    <delete id="deleteByCreateTimeAndPrice" parameterType="java.util.Map">
+    <delete id="deleteByCreateTimeAndPrice" parameterType="Map">
 
         delete from video where create_time <![CDATA[ > ]]> #{create_time} and price <![CDATA[ >= ]]> #{price}
 
