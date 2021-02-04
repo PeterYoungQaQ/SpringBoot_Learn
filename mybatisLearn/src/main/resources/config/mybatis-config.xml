@@ -7,6 +7,12 @@
     <settings>
         <setting name="mapUnderscoreToCamelCase" value="true"/>
     </settings>
+    
+    <typeAliases>
+        <!-- 自定义对象别名-->
+        <typeAlias type="net.peter.online_class.domain.Video" alias="Video" />
+
+    </typeAliases>
 
     <environments default="development">
         <environment id="development">

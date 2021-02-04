@@ -10,7 +10,7 @@ namespace:名称空间，一般是需要保持全局唯一，最好是和dao层�
 mybatis是使用接口动态代理
 -->
 <mapper namespace="net.peter.online_class.dao.VideoMapper">
-    <select id="selectById" parameterType="java.lang.Integer" resultType="net.peter.online_class.domain.Video">
+    <select id="selectById" parameterType="java.lang.Integer" resultType="Video">
         <!--
             statement sql,
             id:当前mapper下需要唯一
@@ -19,13 +19,13 @@ mybatis是使用接口动态代理
         select * from video where id = #{video_id,jdbcType=INTEGER}
     </select>
 
-    <select id="selectByPointAndTitleLike" resultType="net.peter.online_class.domain.Video">
+    <select id="selectByPointAndTitleLike" resultType="Video">
 
         select * from video where point = #{point,jdbcType=DOUBLE} and title like concat('%',#{title,jdbcType=VARCHAR},'%')
 
     </select>
 
-    <insert id="add" parameterType="net.peter.online_class.domain.Video"
+    <insert id="add" parameterType="Video"
             useGeneratedKeys="true" keyProperty="id" keyColumn="id">
 
         INSERT INTO `video` ( `title`, `summary`, `cover_img`, `price`, `create_time`, `c_id`, `point`)
@@ -37,7 +37,7 @@ mybatis是使用接口动态代理
 
 
     <!--批量插入-->
-    <insert id="addBatch" parameterType="net.peter.online_class.domain.Video" useGeneratedKeys="true" keyProperty="id" keyColumn="id" >
+    <insert id="addBatch" parameterType="Video" useGeneratedKeys="true" keyProperty="id" keyColumn="id" >
 
     INSERT INTO `video` ( `title`, `summary`, `cover_img`, `price`, `create_time`, `point`)
     VALUES
@@ -53,7 +53,7 @@ mybatis是使用接口动态代理
     </insert>
 
     <!--插入操作-->
-    <update id="updateVideo" parameterType="net.peter.online_class.domain.Video">
+    <update id="updateVideo" parameterType="Video">
 
         UPDATE video
 
@@ -80,7 +80,7 @@ mybatis是使用接口动态代理
 
 
     <!-- 动态更新-->
-    <update id="updateVideoSelective" parameterType="net.peter.online_class.domain.Video">
+    <update id="updateVideoSelective" parameterType="Video">
 
         update video
 

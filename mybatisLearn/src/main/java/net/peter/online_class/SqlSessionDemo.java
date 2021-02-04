@@ -25,11 +25,11 @@ public class SqlSessionDemo {
         SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
 
         // 获取session
-        try (SqlSession sqlSession = sqlSessionFactory.openSession();){
+        try (SqlSession sqlSession = sqlSessionFactory.openSession()){
 
             VideoMapper videoMapper = sqlSession.getMapper(VideoMapper.class);
 
-            // 通过Mapper方式进行查询
+//             // 通过Mapper方式进行查询
 //            Video video = videoMapper.selectById(44);
 //
 //            System.out.println(video.toString());
@@ -53,10 +53,10 @@ public class SqlSessionDemo {
 //            videoAdd1.setCreate_time(new Date());
 //            videoAdd1.setSummary("帅的不谈");
 //
-////            int rows1 = videoMapper.add(videoAdd1);
-////            System.out.println(rows1);
-////
-////            System.out.println(videoAdd1.toString());
+//            int rows1 = videoMapper.add(videoAdd1);
+//            System.out.println(rows1);
+//
+//            System.out.println(videoAdd1.toString());
 //
 //            Video videoAdd2 = new Video();
 //            videoAdd2.setTitle("浩然同学2");
@@ -87,7 +87,7 @@ public class SqlSessionDemo {
 //
 //            videoMapper.updateVideo(videoUpdate);
 
-            // 通过mapper方法进行选择性更新update操作
+//            // 通过mapper方法进行选择性更新update操作
 //            Video videoUpdate = new Video();
 //            videoUpdate.setCover_img("baidu.com");
 //            videoUpdate.setTitle("今天天气很好!");
