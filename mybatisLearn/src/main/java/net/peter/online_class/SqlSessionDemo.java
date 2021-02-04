@@ -2,6 +2,7 @@ package net.peter.online_class;
 
 import net.peter.online_class.dao.VideoMapper;
 import net.peter.online_class.dao.VideoOrderMapper;
+import net.peter.online_class.domain.User;
 import net.peter.online_class.domain.Video;
 import net.peter.online_class.domain.VideoOrder;
 import org.apache.ibatis.builder.SqlSourceBuilder;
@@ -113,9 +114,15 @@ public class SqlSessionDemo {
 //            Video videoResultMap = videoMapper.selectBaseFieldByIdWithResultMap(45);
 //            System.out.println(videoResultMap.toString());
 
-            List<VideoOrder> videoOrderList = videoOrderMapper.queryVideoOrderList();
+//            // 利用ResultMap的一对一关联查询功能
+//            List<VideoOrder> videoOrderList = videoOrderMapper.queryVideoOrderList();
+//
+//            System.out.println(videoOrderList.toString());
 
-            System.out.println(videoOrderList.toString());
+//            // 利用ResultMap的一对多关联查询功能
+//            List<User> userList = videoOrderMapper.queryUserOrder();
+//
+//            System.out.println(userList.toString());
 
         }
     }

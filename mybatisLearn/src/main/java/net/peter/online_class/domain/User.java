@@ -1,12 +1,31 @@
 package net.peter.online_class.domain;
 
 import java.util.Date;
+import java.util.List;
 
 public class User {
 
     private int id;
 
     private String name;
+
+    private String pwd;
+
+    private String headImg;
+
+    private String phone;
+
+    private Date createTime;
+
+    private List<VideoOrder> videoOrderList;
+
+    public List<VideoOrder> getVideoOrderList() {
+        return videoOrderList;
+    }
+
+    public void setVideoOrderList(List<VideoOrder> videoOrderList) {
+        this.videoOrderList = videoOrderList;
+    }
 
     public int getId() {
         return id;
@@ -56,11 +75,5 @@ public class User {
         this.createTime = createTime;
     }
 
-    private String pwd;
 
-    private String headImg;
-
-    private String phone;
-
-    private Date createTime;
 }
