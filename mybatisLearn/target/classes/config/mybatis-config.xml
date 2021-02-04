@@ -10,7 +10,10 @@
     
     <typeAliases>
         <!-- 自定义对象别名-->
-        <typeAlias type="net.peter.online_class.domain.Video" alias="Video" />
+        <!-- <typeAlias type="net.peter.online_class.domain.Video" alias="Video" />-->
+        
+        <!-- 将一整个包都用最后的文件名作为别名-->
+        <package name="net.peter.online_class.domain"/>
 
     </typeAliases>
 
