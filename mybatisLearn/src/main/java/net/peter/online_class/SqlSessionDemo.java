@@ -1,7 +1,9 @@
 package net.peter.online_class;
 
 import net.peter.online_class.dao.VideoMapper;
+import net.peter.online_class.dao.VideoOrderMapper;
 import net.peter.online_class.domain.Video;
+import net.peter.online_class.domain.VideoOrder;
 import org.apache.ibatis.builder.SqlSourceBuilder;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
@@ -29,6 +31,8 @@ public class SqlSessionDemo {
 
             VideoMapper videoMapper = sqlSession.getMapper(VideoMapper.class);
 
+            VideoOrderMapper videoOrderMapper = sqlSession.getMapper(VideoOrderMapper.class);
+
 //             // 通过Mapper方式进行查询
 //            Video video = videoMapper.selectById(44);
 //
@@ -45,12 +49,12 @@ public class SqlSessionDemo {
 
 //            // 通过mapper方法新增一条视频记录
 //            Video videoAdd1 = new Video();
-//            videoAdd1.setTitle("浩然同学");
-//            videoAdd1.setCover_img("aa.png");
+//            videoAdd1.setTitle("Peter");
+//            videoAdd1.setCoverImg("aa.png");
 //            videoAdd1.setPoint(9.4);
-//            videoAdd1.setC_id(20);
+//            videoAdd1.setcId(20);
 //            videoAdd1.setPrice(850);
-//            videoAdd1.setCreate_time(new Date());
+//            videoAdd1.setCreateTime(new Date());
 //            videoAdd1.setSummary("帅的不谈");
 //
 //            int rows1 = videoMapper.add(videoAdd1);
@@ -108,6 +112,10 @@ public class SqlSessionDemo {
 //            // 使用ResultMap形式进行查询id查询
 //            Video videoResultMap = videoMapper.selectBaseFieldByIdWithResultMap(45);
 //            System.out.println(videoResultMap.toString());
+
+            List<VideoOrder> videoOrderList = videoOrderMapper.queryVideoOrderList();
+
+            System.out.println(videoOrderList.toString());
 
         }
     }

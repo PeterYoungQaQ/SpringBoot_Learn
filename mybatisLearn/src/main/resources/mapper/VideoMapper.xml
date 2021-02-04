@@ -42,8 +42,8 @@ mybatis是使用接口动态代理
 
         INSERT INTO `video` ( `title`, `summary`, `cover_img`, `price`, `create_time`, `c_id`, `point`)
         VALUES
-        (#{title,jdbcType=VARCHAR},#{summary,jdbcType=VARCHAR},#{cover_img,jdbcType=VARCHAR},#{price,jdbcType=INTEGER},
-         #{create_time,jdbcType=TIMESTAMP},#{c_id,jdbcType=INTEGER},#{point,jdbcType=DOUBLE});
+        (#{title,jdbcType=VARCHAR},#{summary,jdbcType=VARCHAR},#{coverImg,jdbcType=VARCHAR},#{price,jdbcType=INTEGER},
+         #{createTime,jdbcType=TIMESTAMP},#{cId,jdbcType=INTEGER},#{point,jdbcType=DOUBLE});
 
     </insert>
 
@@ -56,9 +56,9 @@ mybatis是使用接口动态代理
 
     <foreach collection="list" item="video" separator=",">
 
-        (#{video.title,jdbcType=VARCHAR},#{video.summary,jdbcType=VARCHAR},#{video.cover_img,jdbcType=VARCHAR},
+        (#{video.title,jdbcType=VARCHAR},#{video.summary,jdbcType=VARCHAR},#{video.coverImg,jdbcType=VARCHAR},
         #{video.price,jdbcType=INTEGER},
-        #{video.create_time,jdbcType=TIMESTAMP},#{video.point,jdbcType=DOUBLE})
+        #{video.createTime,jdbcType=TIMESTAMP},#{video.point,jdbcType=DOUBLE})
 
     </foreach>
 
@@ -74,11 +74,11 @@ mybatis是使用接口动态代理
 
             summary = #{summary,jdbcType=VARCHAR},
 
-            cover_img = #{cover_img,jdbcType=VARCHAR},
+            cover_img = #{coverImg,jdbcType=VARCHAR},
 
             price = #{price,jdbcType=INTEGER},
 
-            c_id = #{c_id,jdbcType=INTEGER},
+            c_id = #{cId,jdbcType=INTEGER},
 
             point = #{point,jdbcType=INTEGER},
 
@@ -102,11 +102,11 @@ mybatis是使用接口动态代理
 
             <if test="summary != null "> summary = #{summary,jdbcType=VARCHAR},</if>
 
-            <if test="cover_img != null "> cover_img = #{cover_img,jdbcType=VARCHAR},</if>
+            <if test="cover_img != null "> cover_img = #{coverImg,jdbcType=VARCHAR},</if>
 
             <if test="price != 0 "> price = #{price,jdbcType=INTEGER},</if>
 
-            <if test="create_time !=null "> create_time = #{create_time,jdbcType=TIMESTAMP},</if>
+            <if test="create_time !=null "> create_time = #{createTime,jdbcType=TIMESTAMP},</if>
 
             <!-- 特别注意： 一定要看pojo类里面的是基本数据类型，还是包装数据类型-->
             <!-- 比如说要!=null，实体类就要用DOUBLE，而不能用double-->
@@ -122,7 +122,7 @@ mybatis是使用接口动态代理
     <!-- 删除操作-->
     <delete id="deleteByCreateTimeAndPrice" parameterType="Map">
 
-        delete from video where create_time <![CDATA[ > ]]> #{create_time} and price <![CDATA[ >= ]]> #{price}
+        delete from video where create_time <![CDATA[ > ]]> #{createTime} and price <![CDATA[ >= ]]> #{price}
 
     </delete>
 
@@ -140,7 +140,7 @@ mybatis是使用接口动态代理
         <!-- 最终结果-->
         <result column="video_title" property="title" jdbcType="VARCHAR" />
         <result column="summary" property="summary" jdbcType="VARCHAR" />
-        <result column="cover_img" property="cover_img" jdbcType="VARCHAR" />
+        <result column="cover_img" property="coverImg" jdbcType="VARCHAR" />
 
     </resultMap>
 

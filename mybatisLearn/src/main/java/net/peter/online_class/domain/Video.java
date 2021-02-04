@@ -10,13 +10,13 @@ public class Video {
 
     private String summary;
 
-    private String cover_img;
+    private String coverImg;
 
     private int price;
 
-    private Date create_time;
+    private Date createTime;
 
-    private int c_id;
+    private int cId;
 
     private double point;
 
@@ -44,12 +44,12 @@ public class Video {
         this.summary = summary;
     }
 
-    public String getCover_img() {
-        return cover_img;
+    public String getCoverImg() {
+        return coverImg;
     }
 
-    public void setCover_img(String cover_img) {
-        this.cover_img = cover_img;
+    public void setCoverImg(String coverImg) {
+        this.coverImg = coverImg;
     }
 
     public int getPrice() {
@@ -60,20 +60,20 @@ public class Video {
         this.price = price;
     }
 
-    public Date getCreate_time() {
-        return create_time;
+    public Date getCreateTime() {
+        return createTime;
     }
 
-    public void setCreate_time(Date create_time) {
-        this.create_time = create_time;
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
     }
 
-    public int getC_id() {
-        return c_id;
+    public int getcId() {
+        return cId;
     }
 
-    public void setC_id(int c_id) {
-        this.c_id = c_id;
+    public void setcId(int cId) {
+        this.cId = cId;
     }
 
     public double getPoint() {
@@ -90,10 +90,10 @@ public class Video {
                 "id=" + id +
                 ", title='" + title + '\'' +
                 ", summary='" + summary + '\'' +
-                ", cover_img='" + cover_img + '\'' +
+                ", coverImg='" + coverImg + '\'' +
                 ", price=" + price +
-                ", create_time=" + create_time +
-                ", c_id=" + c_id +
+                ", createTime=" + createTime +
+                ", cId=" + cId +
                 ", point=" + point +
                 '}';
     }
