@@ -126,4 +126,22 @@ mybatis是使用接口动态代理
 
     </delete>
 
+    <!-- 利用ResultMap来进行查询-->
+    <select id="selectBaseFieldByIdWithResultMap" resultMap="VideoResultMap">
+        select id , title as video_title, summary, cover_img from video where id = #{video_id,jdbcType=INTEGER}
+    </select>
+
+    <!-- 复杂sql查询时，使用resultMap来进行查询，一般是放在文件的最顶部-->
+    <resultMap id="VideoResultMap" type="Video">
+
+        <!-- 数据库和POJO类型的映射关系-->
+        <id column="id" property="id" javaType="INTEGER"/>
+
+        <!-- 最终结果-->
+        <result column="video_title" property="title" jdbcType="VARCHAR" />
+        <result column="summary" property="summary" jdbcType="VARCHAR" />
+        <result column="cover_img" property="cover_img" jdbcType="VARCHAR" />
+
+    </resultMap>
+
 </mapper>

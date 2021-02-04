@@ -105,6 +105,9 @@ public class SqlSessionDemo {
 //
 //            System.out.println(rows);
 
+//            // 使用ResultMap形式进行查询id查询
+//            Video videoResultMap = videoMapper.selectBaseFieldByIdWithResultMap(45);
+//            System.out.println(videoResultMap.toString());
 
         }
     }
