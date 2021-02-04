@@ -119,10 +119,10 @@ public class SqlSessionDemo {
 //
 //            System.out.println(videoOrderList.toString());
 
-            // 利用ResultMap的一对多关联查询功能
-            List<User> userList = videoOrderMapper.queryUserOrder();
-
-            System.out.println(userList.toString());
+//            // 利用ResultMap的一对多关联查询功能
+//            List<User> userList = videoOrderMapper.queryUserOrder();
+//
+//            System.out.println(userList.toString());
 
         }
     }
