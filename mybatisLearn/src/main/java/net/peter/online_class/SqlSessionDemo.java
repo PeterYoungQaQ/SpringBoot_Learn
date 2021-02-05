@@ -39,11 +39,11 @@ public class SqlSessionDemo {
 //
 //            System.out.println(video.toString());
 
-            // 通过@Select注解查询
+//            // 通过@Select注解查询
 //            List<Video> videoList = videoMapper.selectList();
 //            System.out.println(videoList.toString());
 
-            // 通过mapper方式进行多个参数查询
+//            // 通过mapper方式进行多个参数查询
 //            List<Video> videosList = videoMapper.selectByPointAndTitleLike(9.1,"");
 //            System.out.println(videosList.toString());
 
