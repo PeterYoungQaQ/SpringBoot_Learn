@@ -1,8 +1,9 @@
 package net.peter.online_class.domain;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class Video {
+public class Video implements Serializable {
 
     private int id;
 

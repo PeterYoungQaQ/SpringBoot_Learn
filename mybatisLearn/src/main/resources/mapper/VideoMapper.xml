@@ -10,6 +10,9 @@ namespace:名称空间，一般是需要保持全局唯一，最好是和dao层�
 mybatis是使用接口动态代理
 -->
 <mapper namespace="net.peter.online_class.dao.VideoMapper">
+
+    <!-- 配置二级缓存-->
+    <cache eviction="LRU" flushInterval="100000" readOnly="true" size="1024"/>
     
     <sql id="base_video_field">
         id,title,summary,cover_img
