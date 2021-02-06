@@ -124,6 +124,14 @@ public class SqlSessionDemo {
 //
 //            System.out.println(userList.toString());
 
+//            // 懒加载方式进行对应用户的订单查询
+//            List<VideoOrder> videoOrderListLazy = videoOrderMapper.queryVideoOrderListLazy();
+//
+//            for (VideoOrder videoOrder:videoOrderListLazy) {
+//                System.out.println(videoOrder.getVideoTitle());
+//                System.out.println(videoOrder.getUser().getName());
+//            }
+
         }
     }
 }
