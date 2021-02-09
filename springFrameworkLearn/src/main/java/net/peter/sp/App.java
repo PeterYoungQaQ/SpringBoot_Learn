@@ -58,6 +58,6 @@ public class App {
 
         Video video = (Video) context.getBean("video");
         System.out.println(video.getChapterList().toString());
-        System.out.println(video.getVideoMap().values());
+        System.out.println(video.getVideoMap().values().toString());
     }
 }
