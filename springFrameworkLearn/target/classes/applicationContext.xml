@@ -4,9 +4,17 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
        http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean id="video" class="net.peter.sp.domain.Video" >
-        <property name="id" value="9" />
-        <property name="title" value="帅的不谈" />
+<!--    使用set的方法进行bean注入-->
+<!--    <bean id="video" class="net.peter.sp.domain.Video" scope="prototype">-->
+<!--        <property name="id" value="9" />-->
+<!--        <property name="title" value="帅的不谈" />-->
+<!--    </bean>-->
+
+<!--    使用带参函数进行bean注入-->
+    <bean id="video" class="net.peter.sp.domain.Video">
+
+        <constructor-arg name="id" value="520"/>
+        <constructor-arg name="title" value="帅的不谈"/>
     </bean>
 
     <bean id="videoOrder" class="net.peter.sp.domain.VideoOrder">

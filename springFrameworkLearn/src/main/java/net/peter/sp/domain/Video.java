@@ -6,6 +6,17 @@ public class Video {
 
     private String title;
 
+    public Video(){
+
+    }
+
+    public Video(String title, int id){
+        System.out.println("Video 带参数构造函数");
+        this.title = title;
+        this.id = id;
+    }
+
+
     public int getId() {
         return id;
     }
@@ -15,6 +26,7 @@ public class Video {
     }
 
     public String getTitle() {
+        System.out.println("Video的getTitle方法被调用");
         return title;
     }
 
