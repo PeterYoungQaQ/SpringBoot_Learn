@@ -12,14 +12,23 @@ public class App {
         ApplicationContext applicationContext =
                 new ClassPathXmlApplicationContext("applicationContext.xml");
 
-        Video video = (Video) applicationContext.getBean("video");
+        testScope(applicationContext);
+    }
 
-        System.out.println(video.toString());
+    private static void testScope(ApplicationContext Context){
+        Video video1 = (Video) Context.getBean("video");
 
-        VideoOrder videoOrder= (VideoOrder) applicationContext.getBean("videoOrder");
+        Video video2 = (Video) Context.getBean("video");
 
-        System.out.println(videoOrder.getVideo().getId());
+        // 判断引用地址，即内存地址是否相同
+        System.out.println(video1 == video2);
 
-        System.out.println(videoOrder.toString());
+
+//        VideoOrder videoOrder= (VideoOrder) Context.getBean("videoOrder");
+//
+//        System.out.println(videoOrder.getVideo().getId());
+//
+//        System.out.println(videoOrder.toString());
+
     }
 }

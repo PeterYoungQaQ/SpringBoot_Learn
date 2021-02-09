@@ -4,7 +4,7 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
        http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean id="video" class="net.peter.sp.domain.Video">
+    <bean id="video" class="net.peter.sp.domain.Video" scope="prototype">
         <property name="id" value="9" />
         <property name="title" value="帅的不谈" />
     </bean>
