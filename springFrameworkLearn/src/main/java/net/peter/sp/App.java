@@ -14,8 +14,11 @@ public class App {
 
 //        testScope(applicationContext);
 
-        testInject(applicationContext);
+//        testInject(applicationContext);
+
+        testCollection(applicationContext);
     }
+
 
     /**
      * 测试scope作用域范围
@@ -45,5 +48,16 @@ public class App {
         Video video = (Video) context.getBean("video");
         System.out.println(video.getTitle());
 
+    }
+
+    /**
+     * 测试List和Map格式注入
+     * @param context
+     */
+    private static void testCollection(ApplicationContext context){
+
+        Video video = (Video) context.getBean("video");
+        System.out.println(video.getChapterList().toString());
+        System.out.println(video.getVideoMap().values());
     }
 }

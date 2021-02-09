@@ -11,11 +11,34 @@
 <!--    </bean>-->
 
 <!--    使用带参函数进行bean注入-->
-    <bean id="video" class="net.peter.sp.domain.Video">
+<!--    <bean id="video" class="net.peter.sp.domain.Video">-->
 
-        <constructor-arg name="id" value="520"/>
-        <constructor-arg name="title" value="帅的不谈"/>
-    </bean>
+<!--        <constructor-arg name="id" value="520"/>-->
+<!--        <constructor-arg name="title" value="帅的不谈"/>-->
+<!--    </bean>-->
+
+<!--    将List和Map的数据公式进行注入-->
+        <bean id="video" class="net.peter.sp.domain.Video">
+
+<!--           list类型注入-->
+            <property name="chapterList">
+                <list>
+                    <value>第一章</value>
+                    <value>第二章</value>
+                    <value>第三章</value>
+                    <value>第四章</value>
+                </list>
+            </property>
+
+<!--            map类型注入-->
+            <property name="videoMap">
+                <map>
+                    <entry key="1" value="视频1"/>
+                    <entry key="2" value="视频2"/>
+                    <entry key="3" value="视频3"/>
+                </map>
+            </property>
+        </bean>
 
     <bean id="videoOrder" class="net.peter.sp.domain.VideoOrder">
         <property name="id" value="12" />
