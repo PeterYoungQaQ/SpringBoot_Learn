@@ -5,9 +5,14 @@
        http://www.springframework.org/schema/beans/spring-beans.xsd">
 
     <bean id="video" class="net.peter.sp.domain.Video">
-
         <property name="id" value="9" />
         <property name="title" value="帅的不谈" />
+    </bean>
+
+    <bean id="videoOrder" class="net.peter.sp.domain.VideoOrder">
+        <property name="id" value="12" />
+        <property name="outTradeNo" value="404" />
+        <property name="video" ref="video" />
     </bean>
 
 </beans>
