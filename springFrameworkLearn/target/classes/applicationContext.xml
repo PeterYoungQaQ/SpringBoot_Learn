@@ -5,40 +5,47 @@
        http://www.springframework.org/schema/beans/spring-beans.xsd">
 
 <!--    使用set的方法进行bean注入-->
-<!--    <bean id="video" class="net.peter.sp.domain.Video" scope="prototype">-->
-<!--        <property name="id" value="9" />-->
-<!--        <property name="title" value="帅的不谈" />-->
-<!--    </bean>-->
+    <bean id="video" class="net.peter.sp.domain.Video" scope="prototype">
+        <property name="id" value="9" />
+        <property name="title" value="帅的不谈" />
+    </bean>
 
 <!--    使用带参函数进行bean注入-->
-<!--    <bean id="video" class="net.peter.sp.domain.Video">-->
+<!--    <bean id="video" class="net.peter.sp.domain.Video" scope="prototype">-->
 
 <!--        <constructor-arg name="id" value="520"/>-->
 <!--        <constructor-arg name="title" value="帅的不谈"/>-->
 <!--    </bean>-->
 
-<!--    将List和Map的数据公式进行注入-->
-        <bean id="video" class="net.peter.sp.domain.Video">
+<!--    不同bean之间的继承-->
+    <bean id="video2" class="net.peter.sp.domain.Video2" scope="prototype" parent="video">
 
-<!--           list类型注入-->
-            <property name="chapterList">
-                <list>
-                    <value>第一章</value>
-                    <value>第二章</value>
-                    <value>第三章</value>
-                    <value>第四章</value>
-                </list>
-            </property>
+        <property name="summary" value="新年快乐啦！！"/>
 
-<!--            map类型注入-->
-            <property name="videoMap">
-                <map>
-                    <entry key="1" value="视频1"/>
-                    <entry key="2" value="视频2"/>
-                    <entry key="3" value="视频3"/>
-                </map>
-            </property>
-        </bean>
+    </bean>
+
+<!--&lt;!&ndash;    将List和Map的数据公式进行注入&ndash;&gt;-->
+<!--        <bean id="video" class="net.peter.sp.domain.Video">-->
+
+<!--&lt;!&ndash;           list类型注入&ndash;&gt;-->
+<!--            <property name="chapterList">-->
+<!--                <list>-->
+<!--                    <value>第一章</value>-->
+<!--                    <value>第二章</value>-->
+<!--                    <value>第三章</value>-->
+<!--                    <value>第四章</value>-->
+<!--                </list>-->
+<!--            </property>-->
+
+<!--&lt;!&ndash;            map类型注入&ndash;&gt;-->
+<!--            <property name="videoMap">-->
+<!--                <map>-->
+<!--                    <entry key="1" value="视频1"/>-->
+<!--                    <entry key="2" value="视频2"/>-->
+<!--                    <entry key="3" value="视频3"/>-->
+<!--                </map>-->
+<!--            </property>-->
+<!--        </bean>-->
 
     <bean id="videoOrder" class="net.peter.sp.domain.VideoOrder">
         <property name="id" value="12" />

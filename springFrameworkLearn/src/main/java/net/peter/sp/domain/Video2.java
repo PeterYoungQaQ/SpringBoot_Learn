@@ -1,22 +1,31 @@
 package net.peter.sp.domain;
 
 
-public class Video {
+public class Video2 {
 
     private int id;
 
     private String title;
 
+    private String summary;
 
+    public String getSummary() {
+        return summary;
+    }
 
-    public Video(){
+    public void setSummary(String summary) {
+        this.summary = summary;
+    }
+
+    public Video2(){
 
     }
 
-    public Video(String title, int id){
+    public Video2(String title, int id, String summary){
         System.out.println("Video 带参数构造函数");
         this.title = title;
         this.id = id;
+        this.summary = summary;
     }
 
 
@@ -38,12 +47,12 @@ public class Video {
     }
 
 
-
     @Override
     public String toString() {
-        return "Video{" +
+        return "Video2{" +
                 "id=" + id +
                 ", title='" + title + '\'' +
+                ", summary='" + summary + '\'' +
                 '}';
     }
 }

@@ -1,6 +1,7 @@
 package net.peter.sp;
 
 import net.peter.sp.domain.Video;
+import net.peter.sp.domain.Video2;
 import net.peter.sp.domain.VideoOrder;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -16,7 +17,9 @@ public class App {
 
 //        testInject(applicationContext);
 
-        testCollection(applicationContext);
+//        testCollection(applicationContext);
+
+        testSucceed(applicationContext);
     }
 
 
@@ -54,10 +57,19 @@ public class App {
      * 测试List和Map格式注入
      * @param context
      */
-    private static void testCollection(ApplicationContext context){
+//    private static void testCollection(ApplicationContext context){
+//
+//        Video video = (Video) context.getBean("video");
+//        System.out.println(video.getChapterList().toString());
+//        System.out.println(video.getVideoMap().values().toString());
+//    }
 
-        Video video = (Video) context.getBean("video");
-        System.out.println(video.getChapterList().toString());
-        System.out.println(video.getVideoMap().values().toString());
+    /**
+     * 测试bean继承属性
+     * @param context
+     */
+    private static void testSucceed(ApplicationContext context){
+        Video2 video2 = (Video2) context.getBean("video2");
+        System.out.println(video2.toString());
     }
 }
