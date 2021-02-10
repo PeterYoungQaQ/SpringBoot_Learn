@@ -7,10 +7,17 @@ public class Video {
 
     private String title;
 
+    public void init(){
+        System.out.println("Video类做初始化操作");
+    }
+
+    public void destroy(){
+        System.out.println("Video类被销毁了");
+    }
 
 
     public Video(){
-
+        System.out.println("Video空类被调用");
     }
 
     public Video(String title, int id){

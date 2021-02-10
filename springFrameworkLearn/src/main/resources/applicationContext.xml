@@ -5,7 +5,7 @@
        http://www.springframework.org/schema/beans/spring-beans.xsd">
 
 <!--    使用set的方法进行bean注入-->
-    <bean id="video" class="net.peter.sp.domain.Video" scope="prototype">
+    <bean id="video" class="net.peter.sp.domain.Video" init-method="init" destroy-method="destroy">
         <property name="id" value="9" />
         <property name="title" value="帅的不谈" />
     </bean>
@@ -18,11 +18,11 @@
 <!--    </bean>-->
 
 <!--    不同bean之间的继承-->
-    <bean id="video2" class="net.peter.sp.domain.Video2" scope="prototype" parent="video">
+<!--    <bean id="video2" class="net.peter.sp.domain.Video2" scope="prototype" parent="video">-->
 
-        <property name="summary" value="新年快乐啦！！"/>
+<!--        <property name="summary" value="新年快乐啦！！"/>-->
 
-    </bean>
+<!--    </bean>-->
 
 <!--&lt;!&ndash;    将List和Map的数据公式进行注入&ndash;&gt;-->
 <!--        <bean id="video" class="net.peter.sp.domain.Video">-->
@@ -48,10 +48,10 @@
 <!--        </bean>-->
 
 <!--    设置两个bean之间的关系，Video要先于VideoOrder进行实例化-->
-    <bean id="videoOrder" class="net.peter.sp.domain.VideoOrder" depends-on="video">
-        <property name="id" value="12" />
-        <property name="outTradeNo" value="404" />
-        <property name="video" ref="video" />
-    </bean>
+<!--    <bean id="videoOrder" class="net.peter.sp.domain.VideoOrder" depends-on="video">-->
+<!--        <property name="id" value="12" />-->
+<!--        <property name="outTradeNo" value="404" />-->
+<!--        <property name="video" ref="video" />-->
+<!--    </bean>-->
 
 </beans>

@@ -10,7 +10,7 @@ public class App {
 
     public static void main(String[] args) {
 
-        ApplicationContext applicationContext =
+        ClassPathXmlApplicationContext applicationContext =
                 new ClassPathXmlApplicationContext("applicationContext.xml");
 
 //        testScope(applicationContext);
@@ -19,7 +19,11 @@ public class App {
 
 //        testCollection(applicationContext);
 
-        testSucceed(applicationContext);
+//        testSucceed(applicationContext);
+
+        testInitAndDestroy(applicationContext);
+
+        applicationContext.registerShutdownHook();
     }
 
 
@@ -71,5 +75,16 @@ public class App {
     private static void testSucceed(ApplicationContext context){
         Video2 video2 = (Video2) context.getBean("video2");
         System.out.println(video2.toString());
+    }
+
+    /**
+     * 测试bean的初始化和销毁过程
+     * @param context
+     */
+    private static void testInitAndDestroy(ApplicationContext context){
+
+        Video video = (Video) context.getBean("video");
+        System.out.println(video.getTitle());
+
     }
 }
