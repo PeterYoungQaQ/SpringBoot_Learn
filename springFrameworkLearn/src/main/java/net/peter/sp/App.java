@@ -40,9 +40,7 @@ public class App {
         System.out.println(video1 == video2);
 
 
-//        VideoOrder videoOrder= (VideoOrder) Context.getBean("videoOrder");
-//        System.out.println(videoOrder.getVideo().getId());
-//        System.out.println(videoOrder.toString());
+
 
     }
 
@@ -52,8 +50,11 @@ public class App {
      */
     private static void testInject(ApplicationContext context){
 
-        Video video = (Video) context.getBean("video");
-        System.out.println(video.getTitle());
+//        Video video = (Video) context.getBean("video");
+//        System.out.println(video.getTitle());
+
+        VideoOrder videoOrder= (VideoOrder) context.getBean("videoOrder");
+        System.out.println(videoOrder.getVideo().getId());
 
     }
 
