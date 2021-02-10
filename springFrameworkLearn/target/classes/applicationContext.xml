@@ -5,10 +5,14 @@
        http://www.springframework.org/schema/beans/spring-beans.xsd">
 
 <!--    使用set的方法进行bean注入-->
-    <bean id="video" class="net.peter.sp.domain.Video" scope="prototype">
+    <bean id="video" class="net.peter.sp.domain.Video" init-method="init" destroy-method="destroy">
         <property name="id" value="9" />
         <property name="title" value="帅的不谈" />
     </bean>
+
+<!--    对bean进行创建对象时进行二次操作-->
+<!--    <bean class="net.peter.sp.processor.CustomBeanPostProcessor"/>-->
+<!--    <bean class="net.peter.sp.processor.CustomBeanPostProcessor2"/>-->
 
 <!--    使用带参函数进行bean注入-->
 <!--    <bean id="video" class="net.peter.sp.domain.Video" scope="prototype">-->
@@ -18,16 +22,16 @@
 <!--    </bean>-->
 
 <!--    不同bean之间的继承-->
-    <bean id="video2" class="net.peter.sp.domain.Video2" scope="prototype" parent="video">
+<!--    <bean id="video2" class="net.peter.sp.domain.Video2" scope="prototype" parent="video">-->
 
-        <property name="summary" value="新年快乐啦！！"/>
+<!--        <property name="summary" value="新年快乐啦！！"/>-->
 
-    </bean>
+<!--    </bean>-->
 
-<!--&lt;!&ndash;    将List和Map的数据公式进行注入&ndash;&gt;-->
+<!--    将List和Map的数据公式进行注入-->
 <!--        <bean id="video" class="net.peter.sp.domain.Video">-->
 
-<!--&lt;!&ndash;           list类型注入&ndash;&gt;-->
+<!--           list类型注入-->
 <!--            <property name="chapterList">-->
 <!--                <list>-->
 <!--                    <value>第一章</value>-->
@@ -37,7 +41,7 @@
 <!--                </list>-->
 <!--            </property>-->
 
-<!--&lt;!&ndash;            map类型注入&ndash;&gt;-->
+<!--            map类型注入-->
 <!--            <property name="videoMap">-->
 <!--                <map>-->
 <!--                    <entry key="1" value="视频1"/>-->
@@ -47,7 +51,8 @@
 <!--            </property>-->
 <!--        </bean>-->
 
-    <bean id="videoOrder" class="net.peter.sp.domain.VideoOrder">
+<!--    设置两个bean之间的关系，Video要先于VideoOrder进行实例化-->
+    <bean id="videoOrder" class="net.peter.sp.domain.VideoOrder" depends-on="video">
         <property name="id" value="12" />
         <property name="outTradeNo" value="404" />
         <property name="video" ref="video" />

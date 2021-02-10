@@ -15,15 +15,15 @@ public class App {
 
 //        testScope(applicationContext);
 
-//        testInject(applicationContext);
+        testInject(applicationContext);
 
 //        testCollection(applicationContext);
 
 //        testSucceed(applicationContext);
 
-        testInitAndDestroy(applicationContext);
+//        testInitAndDestroy(applicationContext);
 
-        applicationContext.registerShutdownHook();
+
     }
 
 
@@ -85,6 +85,6 @@ public class App {
 
         Video video = (Video) context.getBean("video");
         System.out.println(video.getTitle());
-
+        ((ClassPathXmlApplicationContext) context).registerShutdownHook();
     }
 }

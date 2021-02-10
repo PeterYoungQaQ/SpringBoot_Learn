@@ -10,6 +10,10 @@
         <property name="title" value="帅的不谈" />
     </bean>
 
+<!--    对bean进行创建对象时进行二次操作-->
+<!--    <bean class="net.peter.sp.processor.CustomBeanPostProcessor"/>-->
+<!--    <bean class="net.peter.sp.processor.CustomBeanPostProcessor2"/>-->
+
 <!--    使用带参函数进行bean注入-->
 <!--    <bean id="video" class="net.peter.sp.domain.Video" scope="prototype">-->
 
@@ -24,10 +28,10 @@
 
 <!--    </bean>-->
 
-<!--&lt;!&ndash;    将List和Map的数据公式进行注入&ndash;&gt;-->
+<!--    将List和Map的数据公式进行注入-->
 <!--        <bean id="video" class="net.peter.sp.domain.Video">-->
 
-<!--&lt;!&ndash;           list类型注入&ndash;&gt;-->
+<!--           list类型注入-->
 <!--            <property name="chapterList">-->
 <!--                <list>-->
 <!--                    <value>第一章</value>-->
@@ -37,7 +41,7 @@
 <!--                </list>-->
 <!--            </property>-->
 
-<!--&lt;!&ndash;            map类型注入&ndash;&gt;-->
+<!--            map类型注入-->
 <!--            <property name="videoMap">-->
 <!--                <map>-->
 <!--                    <entry key="1" value="视频1"/>-->
@@ -48,10 +52,10 @@
 <!--        </bean>-->
 
 <!--    设置两个bean之间的关系，Video要先于VideoOrder进行实例化-->
-<!--    <bean id="videoOrder" class="net.peter.sp.domain.VideoOrder" depends-on="video">-->
-<!--        <property name="id" value="12" />-->
-<!--        <property name="outTradeNo" value="404" />-->
-<!--        <property name="video" ref="video" />-->
-<!--    </bean>-->
+    <bean id="videoOrder" class="net.peter.sp.domain.VideoOrder" depends-on="video">
+        <property name="id" value="12" />
+        <property name="outTradeNo" value="404" />
+        <property name="video" ref="video" />
+    </bean>
 
 </beans>
