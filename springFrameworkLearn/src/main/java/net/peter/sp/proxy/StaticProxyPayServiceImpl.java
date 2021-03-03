@@ -2,7 +2,7 @@ package net.peter.sp.proxy;
 /*
  * @Author: Haoran
  * @Date: 2021/3/3 9:00
- * @Description:
+ * @Description: 静态代理
  */
 
 public class StaticProxyPayServiceImpl implements PayService{
