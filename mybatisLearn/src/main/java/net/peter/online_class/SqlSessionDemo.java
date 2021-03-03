@@ -34,10 +34,10 @@ public class SqlSessionDemo {
 
             VideoOrderMapper videoOrderMapper = sqlSession.getMapper(VideoOrderMapper.class);
 
-//             // 通过Mapper方式进行查询
-//            Video video = videoMapper.selectById(44);
-//
-//            System.out.println(video.toString());
+             // 通过Mapper方式进行查询
+            Video video = videoMapper.selectById(44);
+
+            System.out.println(video.toString());
 
 //            // 通过@Select注解查询
 //            List<Video> videoList = videoMapper.selectList();

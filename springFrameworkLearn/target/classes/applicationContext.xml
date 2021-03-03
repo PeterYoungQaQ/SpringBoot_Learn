@@ -52,10 +52,10 @@
 <!--        </bean>-->
 
 <!--    设置两个bean之间的关系，Video要先于VideoOrder进行实例化-->
-    <bean id="videoOrder" class="net.peter.sp.domain.VideoOrder" autowire="byType">
+    <bean id="videoOrder" class="net.peter.sp.domain.VideoOrder" depends-on="video">
         <property name="id" value="12" />
         <property name="outTradeNo" value="404" />
-
+        <property name="video" ref="video" />
     </bean>
 
 </beans>

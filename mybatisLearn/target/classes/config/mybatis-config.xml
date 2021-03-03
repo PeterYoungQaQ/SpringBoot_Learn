@@ -34,7 +34,7 @@
             <transactionManager type="JDBC"/>
             <dataSource type="POOLED">
                 <property name="driver" value="com.mysql.cj.jdbc.Driver"/>
-                <property name="url" value="jdbc:mysql://127.0.0.1:3306/springLearn?
+                <property name="url" value="jdbc:mysql://127.0.0.1:3306/springtestdatabase?
                 serverTimezone=GMT&amp;useUnicode=true&amp;characterEncoding=utf-8&amp;
                 useSSL=false&amp;allowPublicKeyRetrieval=true"/>
                 <property name="username" value="root"/>
