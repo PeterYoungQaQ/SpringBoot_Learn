@@ -19,13 +19,20 @@ public class ProxyTest {
 //        payService.callback("sduud222");
 
         // jdk动态代理
-        JdkProxy jdkProxy = new JdkProxy();
+//        JdkProxy jdkProxy = new JdkProxy();
 
         // 获取代理类对象
-        PayService payServiceProxy = (PayService) jdkProxy.newProxyInstance(new PayServiceImpl());
+//        PayService payServiceProxy = (PayService) jdkProxy.newProxyInstance(new PayServiceImpl());
+//
+//        payServiceProxy.callback("qqnum1");
+//
+//        payServiceProxy.save(23,11);
 
-        payServiceProxy.callback("qqnum1");
+        // 使用cglib动态代理
+        CglibProxy cglibProxy = new CglibProxy();
+        PayService payService = (PayService) cglibProxy.newProxyInstance(new PayServiceImpl());
 
-        payServiceProxy.save(23,11);
+        payService.callback("asdasd");
+        payService.save(20,80);
     }
 }
