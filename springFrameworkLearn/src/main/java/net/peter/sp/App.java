@@ -3,6 +3,7 @@ package net.peter.sp;
 import net.peter.sp.domain.Video;
 import net.peter.sp.domain.Video2;
 import net.peter.sp.domain.VideoOrder;
+import net.peter.sp.service.VideoService;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -15,8 +16,9 @@ public class App {
 
 //        testScope(applicationContext);
 
-        testInject(applicationContext);
+//        testInject(applicationContext);
 
+        testAop(applicationContext);
 //        testCollection(applicationContext);
 
 //        testSucceed(applicationContext);
@@ -87,5 +89,18 @@ public class App {
         Video video = (Video) context.getBean("video");
         System.out.println(video.getTitle());
         ((ClassPathXmlApplicationContext) context).registerShutdownHook();
+    }
+
+    /**
+     * 测试AOP切面编程
+     * @param context
+     */
+    private static void testAop(ApplicationContext context){
+
+        VideoService videoService = (VideoService) context.getBean("videoService");
+
+        videoService.save(new Video());
+
+        videoService.findById(2);
     }
 }
