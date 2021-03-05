@@ -39,9 +39,13 @@ public class App {
 
         VideoService videoService = (VideoService) context.getBean("videoService");
 
-        videoService.findById(40);
+        VideoService videoService2 = (VideoService) context.getBean("videoService");
 
-        context.close();
+//        videoService.findById(40);
+//        context.close();
+
+        System.out.println(videoService == videoService2);
+
 
     }
 

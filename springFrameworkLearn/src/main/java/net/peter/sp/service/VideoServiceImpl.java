@@ -8,11 +8,13 @@ package net.peter.sp.service;
 import net.peter.sp.dao.VideoDao;
 import net.peter.sp.domain.Video;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 //@Component("videoService")
 @Service("videoService")
+//@Scope("prototype")
 public class VideoServiceImpl implements VideoService{
 
     @Autowired
