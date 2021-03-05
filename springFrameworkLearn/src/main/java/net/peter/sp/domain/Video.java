@@ -1,16 +1,24 @@
 package net.peter.sp.domain;
 
 
+import org.springframework.stereotype.Component;
+
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
+
+@Component
 public class Video {
 
     private int id;
 
     private String title;
 
+    @PostConstruct
     public void init(){
         System.out.println("Video类做初始化操作");
     }
 
+    @PreDestroy
     public void destroy(){
         System.out.println("Video类被销毁了");
     }

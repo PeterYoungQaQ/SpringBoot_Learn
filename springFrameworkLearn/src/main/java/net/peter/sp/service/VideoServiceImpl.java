@@ -5,11 +5,18 @@ package net.peter.sp.service;
  * @Description:
  */
 
+import net.peter.sp.dao.VideoDao;
 import net.peter.sp.domain.Video;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
-@Component("videoService")
+//@Component("videoService")
+@Service("videoService")
 public class VideoServiceImpl implements VideoService{
+
+    @Autowired
+    private VideoDao videoDao;
 
     @Override
     public int save(Video video) {
@@ -20,6 +27,7 @@ public class VideoServiceImpl implements VideoService{
     @Override
     public Video findById(int id) {
         System.out.println("根据id查询视频");
+        videoDao.test();
         return new Video();
     }
 }

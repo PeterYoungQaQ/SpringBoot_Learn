@@ -41,6 +41,8 @@ public class App {
 
         videoService.findById(40);
 
+        context.close();
+
     }
 
 
