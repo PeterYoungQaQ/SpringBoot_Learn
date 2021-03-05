@@ -5,26 +5,41 @@ import net.peter.sp.domain.Video2;
 import net.peter.sp.domain.VideoOrder;
 import net.peter.sp.service.VideoService;
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class App {
 
     public static void main(String[] args) {
 
-        ClassPathXmlApplicationContext applicationContext =
-                new ClassPathXmlApplicationContext("applicationContext.xml");
+// ===========================================================================
+// 使用xml配置
+//        ClassPathXmlApplicationContext applicationContext =
+//                new ClassPathXmlApplicationContext("applicationContext.xml");
 
 //        testScope(applicationContext);
 
 //        testInject(applicationContext);
 
-        testAop(applicationContext);
+//        testAop(applicationContext);
 //        testCollection(applicationContext);
 
 //        testSucceed(applicationContext);
 
 //        testInitAndDestroy(applicationContext);
+// ===========================================================================
 
+// 使用注解配置
+        AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext();
+        // 扫描指定的包，包括子包
+        context.scan("net.peter");
+
+        // 里面完成初始化操作核心方法
+        context.refresh();
+
+        VideoService videoService = (VideoService) context.getBean("videoService");
+
+        videoService.findById(40);
 
     }
 

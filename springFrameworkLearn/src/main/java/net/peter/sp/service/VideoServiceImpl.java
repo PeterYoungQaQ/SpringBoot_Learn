@@ -6,7 +6,9 @@ package net.peter.sp.service;
  */
 
 import net.peter.sp.domain.Video;
+import org.springframework.stereotype.Component;
 
+@Component("videoService")
 public class VideoServiceImpl implements VideoService{
 
     @Override

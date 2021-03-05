@@ -2,13 +2,16 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
-       http://www.springframework.org/schema/beans/spring-beans.xsd">
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/aop
+       http://www.springframework.org/schema/aop/spring-aop-4.2.xsd"
+       xmlns:aop="http://www.springframework.org/schema/aop">
 
 <!--    使用set的方法进行bean注入-->
-    <bean id="video" class="net.peter.sp.domain.Video" init-method="init" destroy-method="destroy">
-        <property name="id" value="9" />
-        <property name="title" value="帅的不谈" />
-    </bean>
+<!--    <bean id="video" class="net.peter.sp.domain.Video" init-method="init" destroy-method="destroy">-->
+<!--        <property name="id" value="9" />-->
+<!--        <property name="title" value="帅的不谈" />-->
+<!--    </bean>-->
 
 <!--    对bean进行创建对象时进行二次操作-->
 <!--    <bean class="net.peter.sp.processor.CustomBeanPostProcessor"/>-->
@@ -52,10 +55,26 @@
 <!--        </bean>-->
 
 <!--    设置两个bean之间的关系，Video要先于VideoOrder进行实例化-->
-    <bean id="videoOrder" class="net.peter.sp.domain.VideoOrder" depends-on="video">
-        <property name="id" value="12" />
-        <property name="outTradeNo" value="404" />
-        <property name="video" ref="video" />
-    </bean>
+<!--    <bean id="videoOrder" class="net.peter.sp.domain.VideoOrder" depends-on="video">-->
+<!--        <property name="id" value="12" />-->
+<!--        <property name="outTradeNo" value="404" />-->
+<!--        <property name="video" ref="video" />-->
+<!--    </bean>-->
+
+<!--    设置AOP切面编程实践的bean-->
+<!--    <bean id="timeHandler" class="net.peter.sp.aop.TimeHandler" />-->
+<!--    <bean id="videoService" class="net.peter.sp.service.VideoServiceImpl" />-->
+
+<!--    AOP的配置-->
+<!--    <aop:config>-->
+
+<!--        <aop:aspect id="timeAspect" ref="timeHandler">-->
+<!--            <aop:pointcut id="allMethodLogPointCut" expression="execution(* net.peter.sp.service.VideoService.*(..))"/>-->
+<!--            <aop:before method="printBefore" pointcut-ref="allMethodLogPointCut" />-->
+<!--            <aop:after method="printAfter" pointcut-ref="allMethodLogPointCut" />-->
+<!--        </aop:aspect>-->
+
+<!--    </aop:config>-->
+
 
 </beans>
