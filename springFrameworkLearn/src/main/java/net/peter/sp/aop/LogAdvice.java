@@ -6,10 +6,8 @@ package net.peter.sp.aop;
  */
 
 import org.aspectj.lang.JoinPoint;
-import org.aspectj.lang.annotation.After;
-import org.aspectj.lang.annotation.Aspect;
-import org.aspectj.lang.annotation.Before;
-import org.aspectj.lang.annotation.Pointcut;
+import org.aspectj.lang.ProceedingJoinPoint;
+import org.aspectj.lang.annotation.*;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -18,15 +16,53 @@ import org.springframework.stereotype.Component;
 public class LogAdvice {
 
     @Pointcut("execution(* net.peter.sp.service.VideoServiceImpl.*(..))")
-    public void aspect(){}
+    public void aspect() {
+    }
 
     @Before("aspect()")
-    public void beforeLog(JoinPoint joinPoint){
+    public void beforeLog(JoinPoint joinPoint) {
         System.out.println("Log advice before log");
     }
 
     @After("aspect()")
-    public void afterLog(JoinPoint joinPoint){
+    public void afterLog(JoinPoint joinPoint) {
         System.out.println("Log advice after log");
     }
+
+    /**
+     * 环绕通知
+     *
+     * @param joinPoint
+     * @return
+     */
+    @Around(value = "aspect()")
+    public void around(JoinPoint joinPoint) {
+
+
+        Object target = joinPoint.getTarget().getClass().getName();
+
+        System.out.println("调用者: " + target);
+
+//        Object [] args = joinPoint.getArgs();
+//
+//        // 通过joinPoint获取参数
+//        System.out.println("参数: " + args[0]);
+
+        long start = System.currentTimeMillis();
+        System.out.println("环绕通知，环绕前");
+
+        try {
+            Thread.sleep(201);
+            ((ProceedingJoinPoint) joinPoint).proceed();
+        } catch (Throwable throwable) {
+            throwable.printStackTrace();
+        }
+
+        long end = System.currentTimeMillis();
+        System.out.println("环绕通知，环绕后");
+
+        System.out.println("方法前后总的耗时: " + (end - start) + "ms");
+
+    }
+
 }
