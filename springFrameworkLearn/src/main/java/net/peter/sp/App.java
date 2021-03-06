@@ -32,7 +32,7 @@ public class App {
 // 使用注解配置
         AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext();
         // 扫描指定的包，包括子包
-        context.scan("net.peter");
+        context.scan("net.peter.sp");
 
         // 里面完成初始化操作核心方法
         context.refresh();
@@ -43,7 +43,9 @@ public class App {
 //
 //        System.out.println(videoOrder.toString());
 
-//        VideoService videoService = (VideoService) context.getBean("videoService");
+        VideoService videoService = (VideoService) context.getBean("videoService");
+
+        videoService.printConfig();
 //
 //        VideoService videoService2 = (VideoService) context.getBean("videoService");
 //

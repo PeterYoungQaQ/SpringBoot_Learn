@@ -11,4 +11,9 @@ public interface VideoService {
 
     int save(Video video);
 
-    Video findById(int id);}
+    Video findById(int id);
+
+    void printConfig();
+}
+
+
