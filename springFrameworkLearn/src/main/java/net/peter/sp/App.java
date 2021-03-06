@@ -1,5 +1,6 @@
 package net.peter.sp;
 
+import net.peter.sp.aop.AnnotationAppConfig;
 import net.peter.sp.domain.Video;
 import net.peter.sp.domain.Video2;
 import net.peter.sp.domain.VideoOrder;
@@ -30,12 +31,12 @@ public class App {
 // ===========================================================================
 
 // 使用注解配置
-        AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext();
-        // 扫描指定的包，包括子包
-        context.scan("net.peter.sp");
-
-        // 里面完成初始化操作核心方法
-        context.refresh();
+//        AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext();
+//        // 扫描指定的包，包括子包
+//        context.scan("net.peter.sp");
+//
+//        // 里面完成初始化操作核心方法
+//        context.refresh();
 
 //        VideoOrder videoOrder = (VideoOrder) context.getBean("videoOrder");
 //
@@ -43,9 +44,9 @@ public class App {
 //
 //        System.out.println(videoOrder.toString());
 
-        VideoService videoService = (VideoService) context.getBean("videoService");
-
-        videoService.printConfig();
+//        VideoService videoService = (VideoService) context.getBean("videoService");
+//
+//        videoService.printConfig();
 //
 //        VideoService videoService2 = (VideoService) context.getBean("videoService");
 //
@@ -54,6 +55,14 @@ public class App {
 //
 //        System.out.println(videoService == videoService2);
 
+// ======================================================================================
+
+        // 使用AOP+注解配置的方式实现
+        AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(AnnotationAppConfig.class);
+
+        VideoService videoService = (VideoService) context.getBean("videoService");
+
+        videoService.printConfig();
 
     }
 
