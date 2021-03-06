@@ -37,14 +37,20 @@ public class App {
         // 里面完成初始化操作核心方法
         context.refresh();
 
-        VideoService videoService = (VideoService) context.getBean("videoService");
+//        VideoOrder videoOrder = (VideoOrder) context.getBean("videoOrder");
+//
+//        videoOrder.setId(23);
+//
+//        System.out.println(videoOrder.toString());
 
-        VideoService videoService2 = (VideoService) context.getBean("videoService");
-
-//        videoService.findById(40);
-//        context.close();
-
-        System.out.println(videoService == videoService2);
+//        VideoService videoService = (VideoService) context.getBean("videoService");
+//
+//        VideoService videoService2 = (VideoService) context.getBean("videoService");
+//
+////        videoService.findById(40);
+////        context.close();
+//
+//        System.out.println(videoService == videoService2);
 
 
     }
