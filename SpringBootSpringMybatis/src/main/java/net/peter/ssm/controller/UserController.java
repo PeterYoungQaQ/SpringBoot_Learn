@@ -25,7 +25,7 @@ public class UserController {
 
         user.setName("浩然");
         user.setId(7);
-        user.setPhone("8868334");
+        user.setPhone(Math.random() * 100 + "");
 
         userService.save(user);
 

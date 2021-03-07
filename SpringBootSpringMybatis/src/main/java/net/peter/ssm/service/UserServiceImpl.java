@@ -9,8 +9,10 @@ import net.peter.ssm.dao.UserMapper;
 import net.peter.ssm.domain.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
+@Transactional
 public class UserServiceImpl implements UserService{
 
     @Autowired
@@ -18,6 +20,9 @@ public class UserServiceImpl implements UserService{
 
     @Override
     public int save(User user) {
-        return userMapper.save(user);
+
+        userMapper.save(user);
+
+        return 1;
     }
 }
