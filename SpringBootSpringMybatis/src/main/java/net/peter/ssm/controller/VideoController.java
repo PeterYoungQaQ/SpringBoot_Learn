@@ -5,10 +5,14 @@ package net.peter.ssm.controller;
  * @Description:
  */
 
+import net.peter.ssm.domain.Video;
 import net.peter.ssm.service.VideoService;
+import net.peter.ssm.utils.JsonData;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("api/v1/pub/video")
@@ -19,6 +23,8 @@ public class VideoController {
 
     @RequestMapping("listVideo")
     public Object listVideo(){
-        return videoService.listVideo();
+
+        List<Video> videoList = videoService.listVideo();
+        return JsonData.buildSuccess(videoList);
     }
 }
