@@ -63,6 +63,12 @@
             <version>29.0-jre</version>
         </dependency>
 
+        <!--热部署依赖包
+        该包包含开发所需的所有工具 热部署就包含在其中-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-devtools</artifactId>
+        </dependency>
 
     </dependencies>
 
@@ -71,6 +77,10 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+                <!--打开开关-->
+                <configuration>
+                    <fork>true</fork>
+                </configuration>
             </plugin>
         </plugins>
     </build>
