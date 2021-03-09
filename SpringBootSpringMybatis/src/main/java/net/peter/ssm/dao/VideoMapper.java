@@ -7,6 +7,7 @@ package net.peter.ssm.dao;
 
 import net.peter.ssm.domain.Video;
 import net.peter.ssm.domain.VideoBanner;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
@@ -23,4 +24,11 @@ public interface VideoMapper {
      * @return
      */
     List<VideoBanner> listVideoBanner();
+
+    /**
+     * 查询视频详情
+     * @param videoId
+     * @return
+     */
+    Video findDetailById(@Param("video_id") int videoId);
 }

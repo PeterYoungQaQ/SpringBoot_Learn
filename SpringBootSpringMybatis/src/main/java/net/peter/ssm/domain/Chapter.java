@@ -1,6 +1,7 @@
 package net.peter.ssm.domain;
 
 import java.util.Date;
+import java.util.List;
 
 /**
  *  小滴课堂 章对象
@@ -23,6 +24,16 @@ public class Chapter {
     private Integer ordered;
 
     private Date createTime;
+
+    private List<Episode> episodeList;
+
+    public List<Episode> getEpisodeList() {
+        return episodeList;
+    }
+
+    public void setEpisodeList(List<Episode> episodeList) {
+        this.episodeList = episodeList;
+    }
 
     @Override
     public String toString() {

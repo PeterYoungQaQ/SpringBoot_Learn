@@ -33,7 +33,8 @@ public class VideoServiceImpl implements VideoService {
     @Override
     public Video findDetailById(int videoId) {
 
-        // TODO 需要使用mybatis关联复杂查询
-        return null;
+        // 需要使用mybatis关联复杂查询
+
+        return videoMapper.findDetailById(videoId);
     }
 }
