@@ -6,6 +6,7 @@ package net.peter.ssm.dao;
  */
 
 import net.peter.ssm.domain.Video;
+import net.peter.ssm.domain.VideoBanner;
 
 import java.util.List;
 
@@ -16,4 +17,10 @@ public interface VideoMapper {
      * @return
      */
     List<Video> listVideo();
+
+    /**
+     * 首页轮播图列表
+     * @return
+     */
+    List<VideoBanner> listVideoBanner();
 }

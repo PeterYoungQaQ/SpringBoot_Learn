@@ -6,10 +6,15 @@ package net.peter.ssm.service;
  */
 
 import net.peter.ssm.domain.Video;
+import net.peter.ssm.domain.VideoBanner;
 
 import java.util.List;
 
 public interface VideoService {
 
     List<Video> listVideo();
+
+    List<VideoBanner> listBanner();
+
+    Video findDetailById(int videoId);
 }
