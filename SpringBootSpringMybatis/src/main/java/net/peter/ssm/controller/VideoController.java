@@ -33,6 +33,7 @@ public class VideoController {
     public JsonData indexBanner(){
 
         List<VideoBanner> videoBannerList = videoService.listBanner();
+//        int i = 1/0;
         return JsonData.buildSuccess(videoBannerList);
     }
 
