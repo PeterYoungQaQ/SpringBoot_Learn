@@ -21,7 +21,7 @@ public class CustomExceptionHandler {
     @ResponseBody
     private JsonData handler(Exception e){
 
-        logger.error("[ 系统异常 ]");
+        logger.error("[ 系统异常 ]" + e.toString());
 
         if (e instanceof CustomException){
             CustomException customException = (CustomException) e;
