@@ -5,12 +5,17 @@ package net.peter.ssm.service;
  * @Description:
  */
 
-import net.peter.ssm.domain.User;
-import org.apache.ibatis.annotations.Param;
-
 import java.util.Map;
 
 public interface UserService {
+
+    /**
+     * 通过手机号和密码进行用户登入
+     * @param phone
+     * @param pwd
+     * @return
+     */
+    String findByPhoneAndPwd(String phone, String pwd);
 
     /**
      * 新增用户

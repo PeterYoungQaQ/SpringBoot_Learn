@@ -5,8 +5,8 @@ package net.peter.ssm.service;
  * @Description:
  */
 
-import net.peter.ssm.domain.Video;
-import net.peter.ssm.domain.VideoBanner;
+import net.peter.ssm.model.entity.Video;
+import net.peter.ssm.model.entity.VideoBanner;
 
 import java.util.List;
 

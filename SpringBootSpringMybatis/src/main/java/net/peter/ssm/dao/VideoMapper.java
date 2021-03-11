@@ -5,8 +5,8 @@ package net.peter.ssm.dao;
  * @Description:
  */
 
-import net.peter.ssm.domain.Video;
-import net.peter.ssm.domain.VideoBanner;
+import net.peter.ssm.model.entity.Video;
+import net.peter.ssm.model.entity.VideoBanner;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Component;

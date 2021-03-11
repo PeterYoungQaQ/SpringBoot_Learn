@@ -6,9 +6,10 @@ package net.peter.ssm.service.impl;
  */
 
 import net.peter.ssm.dao.UserMapper;
-import net.peter.ssm.domain.User;
+import net.peter.ssm.model.entity.User;
 import net.peter.ssm.service.UserService;
 import net.peter.ssm.utils.CommonUtils;
+import net.peter.ssm.utils.JWTUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -21,6 +22,19 @@ public class UserServiceImpl implements UserService {
 
     @Autowired
     private UserMapper userMapper;
+
+
+    @Override
+    public String findByPhoneAndPwd(String phone, String pwd) {
+
+        User user = userMapper.findByPhoneAndPwd(phone, CommonUtils.MD5(pwd));
+
+        if (user == null){
+            return null;
+        }else {
+            return JWTUtils.geneJsonWebToken(user);
+        }
+    }
 
     @Override
     public int save(Map<String, String> userInfo) {

@@ -6,8 +6,8 @@ package net.peter.ssm.service.impl;
  */
 
 import net.peter.ssm.dao.VideoMapper;
-import net.peter.ssm.domain.Video;
-import net.peter.ssm.domain.VideoBanner;
+import net.peter.ssm.model.entity.Video;
+import net.peter.ssm.model.entity.VideoBanner;
 import net.peter.ssm.service.VideoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

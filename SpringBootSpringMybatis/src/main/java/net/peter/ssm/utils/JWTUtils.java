@@ -9,7 +9,7 @@ package net.peter.ssm.utils;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
-import net.peter.ssm.domain.User;
+import net.peter.ssm.model.entity.User;
 
 import java.util.Date;
 
@@ -29,13 +29,13 @@ public class JWTUtils {
     /**
      * 密钥信息
      */
-    private static final String SERECT = "peteryoung";
+    private static final String SECRET = "PeterYoung";
 
 
     /**
      * token前缀信息
      */
-    private static final String TOKEN_PREFIX = "helloworld";
+    private static final String TOKEN_PREFIX = "===HELLO WORLD===";
 
     /**
      * 主题颁布者
@@ -56,7 +56,7 @@ public class JWTUtils {
                 .claim("phone", user.getPhone())
                 .setIssuedAt(new Date())
                 .setExpiration(new Date(System.currentTimeMillis() + EXPIRE))
-                .signWith(SignatureAlgorithm.HS256, SERECT).compact();
+                .signWith(SignatureAlgorithm.HS256, SECRET).compact();
 
         token = TOKEN_PREFIX + token;
 
@@ -71,10 +71,9 @@ public class JWTUtils {
     public static Claims checkJWT(String token){
 
         try{
-            final Claims claims = Jwts.parser().setSigningKey(SERECT)
-                    .parseClaimsJwt(token.replace(TOKEN_PREFIX,""))
+            return Jwts.parser().setSigningKey(SECRET)
+                    .parseClaimsJws(token.replace(TOKEN_PREFIX,""))
                     .getBody();
-            return claims;
         }catch (Exception e){
             return null;
         }

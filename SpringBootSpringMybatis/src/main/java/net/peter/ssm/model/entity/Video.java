@@ -1,4 +1,4 @@
-package net.peter.ssm.domain;
+package net.peter.ssm.model.entity;
 
 import java.util.Date;
 import java.util.List;
