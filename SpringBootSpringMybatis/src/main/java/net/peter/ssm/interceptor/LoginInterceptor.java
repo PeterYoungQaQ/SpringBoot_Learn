@@ -24,11 +24,10 @@ public class LoginInterceptor implements HandlerInterceptor {
      * @param response
      * @param handler
      * @return
-     * @throws Exception
      */
     @Override
     public boolean preHandle(HttpServletRequest request,
-                             HttpServletResponse response, Object handler) throws Exception {
+                             HttpServletResponse response, Object handler) {
         try {
             String accessToken = request.getHeader("token");
             if (accessToken == null) {
