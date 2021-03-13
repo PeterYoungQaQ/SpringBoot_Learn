@@ -5,9 +5,10 @@ package net.peter.ssm.service.impl;
  * @Description:
  */
 
-import net.peter.ssm.dao.UserMapper;
-import net.peter.ssm.dao.VideoMapper;
-import net.peter.ssm.dao.VideoOrderMapper;
+import net.peter.ssm.dao.*;
+import net.peter.ssm.exception.CustomException;
+import net.peter.ssm.model.entity.Episode;
+import net.peter.ssm.model.entity.PlayRecord;
 import net.peter.ssm.model.entity.Video;
 import net.peter.ssm.model.entity.VideoOrder;
 import net.peter.ssm.service.VideoOrderService;
@@ -26,6 +27,12 @@ public class VideoOrderServiceImpl implements VideoOrderService {
     @Autowired
     private VideoMapper videoMapper;
 
+    @Autowired
+    private EpisodeMapper episodeMapper;
+
+    @Autowired
+    private PlayRecordMapper playRecordMapper;
+
     /**
      * 下单操作
      * 未来可能会有优惠券等等其他的功能
@@ -34,7 +41,7 @@ public class VideoOrderServiceImpl implements VideoOrderService {
      * @return
      */
     @Override
-    public int save(int userId, int videoId) {
+    public int saveVideoOrder(int userId, int videoId) {
 
         // 判断是否已经购买
         VideoOrder videoOrder = videoOrderMapper.
@@ -58,6 +65,27 @@ public class VideoOrderServiceImpl implements VideoOrderService {
         newVideoOrder.setVideoImg(video.getCoverImg());
         newVideoOrder.setVideoTitle(video.getTitle());
 
-        return videoOrderMapper.saveOrder(newVideoOrder);
+        int rows = videoOrderMapper.saveOrder(newVideoOrder);
+
+        // 生成播放记录
+        if (rows  == 1){
+
+            Episode episode = episodeMapper.findFirstEpisodeByVideoId(videoId);
+
+            if (episode == null){
+                throw new CustomException(-1,"生成播放记录失败");
+            }
+            PlayRecord playRecord = new PlayRecord();
+
+            playRecord.setCreateTime(new Date());
+            playRecord.setEpisodeId(episode.getId());
+            playRecord.setCurrentNum(episode.getNum());
+            playRecord.setUserId(userId);
+            playRecord.setVideoId(videoId);
+
+            playRecordMapper.saveRecord(playRecord);
+        }
+
+        return rows;
     }
 }

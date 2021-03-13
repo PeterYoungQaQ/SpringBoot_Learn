@@ -6,7 +6,8 @@
 <!--    根据用户id查找下单的视频信息和状态码-->
     <select id="findByUserIdAndVideoIdAndState" resultType="VideoOrder">
 
-        select * from video_order where user_id=#{user_id} and video_id=#{video_id} and state=#{state}
+        select * from video_order
+        where user_id = #{user_id} and video_id = #{video_id} and state = #{state}
 
     </select>
 

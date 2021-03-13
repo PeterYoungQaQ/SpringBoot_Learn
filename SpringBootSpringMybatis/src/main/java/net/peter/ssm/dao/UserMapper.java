@@ -14,7 +14,7 @@ import org.springframework.stereotype.Component;
 @Component
 public interface UserMapper {
 
-    int save(User user);
+    int saveUser(User user);
 
     User findByPhone(@Param("phone") String phone);
 

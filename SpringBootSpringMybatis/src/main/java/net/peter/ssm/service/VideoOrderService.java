@@ -13,5 +13,5 @@ public interface VideoOrderService {
      * @param videoId
      * @return
      */
-    int save(int userId, int videoId);
+    int saveVideoOrder(int userId, int videoId);
 }

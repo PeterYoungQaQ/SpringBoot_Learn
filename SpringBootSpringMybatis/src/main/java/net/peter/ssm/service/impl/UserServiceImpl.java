@@ -37,12 +37,12 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public int save(Map<String, String> userInfo) {
+    public int saveUser(Map<String, String> userInfo) {
 
         User user = parseToUser(userInfo);
 
         if (user != null){
-            userMapper.save(user);
+            userMapper.saveUser(user);
         }else {
             return -1;
         }

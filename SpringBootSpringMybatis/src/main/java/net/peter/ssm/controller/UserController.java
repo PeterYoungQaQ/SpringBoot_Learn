@@ -30,7 +30,7 @@ public class UserController {
     @PostMapping("register")
     public JsonData register(@RequestBody Map<String, String> userInfo){
 
-        int rows = userService.save(userInfo);
+        int rows = userService.saveUser(userInfo);
 
         return rows == 1 ? JsonData.buildSuccess("注册成功") : JsonData.buildError("注册失败，请重试");
 

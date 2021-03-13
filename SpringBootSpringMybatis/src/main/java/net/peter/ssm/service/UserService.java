@@ -24,7 +24,7 @@ public interface UserService {
      * @param userInfo
      * @return
      */
-    int save(Map<String, String> userInfo);
+    int saveUser(Map<String, String> userInfo);
 
 
     /**

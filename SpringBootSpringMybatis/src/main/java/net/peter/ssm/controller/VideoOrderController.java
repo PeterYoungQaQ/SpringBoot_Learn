@@ -33,7 +33,7 @@ public class VideoOrderController {
 
         Integer userId = (Integer) request.getAttribute("user_id");
 
-        int rows = videoOrderService.save(userId, videoOrderRequest.getVideoId());
+        int rows = videoOrderService.saveVideoOrder(userId, videoOrderRequest.getVideoId());
 
         return rows == 0 ? JsonData.buildError("下单失败") : JsonData.buildSuccess("下单成功");
 

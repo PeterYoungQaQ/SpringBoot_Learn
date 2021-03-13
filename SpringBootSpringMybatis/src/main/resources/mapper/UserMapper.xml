@@ -4,7 +4,7 @@
 <mapper namespace="net.peter.ssm.dao.UserMapper">
 
 <!--    插入传入的手机号等等用户信息-->
-    <insert id="save" parameterType="User">
+    <insert id="saveUser" parameterType="User">
 
         INSERT INTO user (name, pwd, head_img, phone, create_time)
         VALUES (#{name,jdbcType=VARCHAR}, #{pwd,jdbcType=VARCHAR}, #{headImg,jdbcType=VARCHAR},
@@ -15,21 +15,21 @@
 <!--    根据手机号查询用户信息-->
     <select id="findByPhone" resultType="User">
 
-        select * from user where phone=#{phone}
+        select * from user where phone = #{phone}
 
     </select>
     
 <!--    根据用户手机号和密码进行登入校验-->
     <select id="findByPhoneAndPwd" resultType="User">
 
-        select * from user where phone=#{phone} and pwd=#{pwd}
+        select * from user where phone = #{phone} and pwd = #{pwd}
 
     </select>
 
 <!--    根据用户id查询用户相关信息-->
     <select id="findByUserId" resultType="User">
 
-        select * from user where id=#{user_id}
+        select * from user where id = #{user_id}
 
     </select>
 

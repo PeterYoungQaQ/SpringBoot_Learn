@@ -68,7 +68,7 @@
     <!--    根据视频id简单查询视频信息-->
     <select id="findById" resultType="Video">
 
-        select * from video where id=#{video_id}
+        select * from video where id = #{video_id}
 
     </select>
 
