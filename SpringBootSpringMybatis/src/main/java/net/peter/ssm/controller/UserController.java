@@ -5,15 +5,14 @@ package net.peter.ssm.controller;
  * @Description:
  */
 
+import net.peter.ssm.model.entity.User;
 import net.peter.ssm.model.request.LoginRequest;
 import net.peter.ssm.service.UserService;
 import net.peter.ssm.utils.JsonData;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.Map;
 
 @RestController
@@ -49,4 +48,26 @@ public class UserController {
 
         return token == null ? JsonData.buildError("登入失败，账号密码错误") : JsonData.buildSuccess(token);
     }
+
+
+    /**
+     * 通过token信息解密来查询用户信息接口
+     * @param request
+     * @return
+     */
+    @GetMapping("find_by_token")
+    public JsonData findUserInfoByToken(HttpServletRequest request){
+
+        Integer userId = (Integer) request.getAttribute("user_id");
+        if (userId == null){
+            return JsonData.buildError("查询失败");
+        }
+
+        User user = userService.findByUserId(userId);
+
+        return JsonData.buildSuccess(user);
+
+    }
+
+
 }

@@ -46,9 +46,9 @@ public class LoginInterceptor implements HandlerInterceptor {
                 request.setAttribute("name", name);
                 return true;
             }
-        }catch (Exception e){
-            sendJsonMessage(response, JsonData.buildError("登录过期，重新登录"));
-        }
+        }catch (Exception ignored){}
+
+        sendJsonMessage(response, JsonData.buildError("登录过期，重新登录"));
 
         return false;
     }

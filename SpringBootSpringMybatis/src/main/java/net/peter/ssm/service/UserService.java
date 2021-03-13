@@ -5,6 +5,8 @@ package net.peter.ssm.service;
  * @Description:
  */
 
+import net.peter.ssm.model.entity.User;
+
 import java.util.Map;
 
 public interface UserService {
@@ -24,4 +26,11 @@ public interface UserService {
      */
     int save(Map<String, String> userInfo);
 
+
+    /**
+     * 通过用户id查找用户信息
+     * @param userId
+     * @return
+     */
+    User findByUserId(Integer userId);
 }
