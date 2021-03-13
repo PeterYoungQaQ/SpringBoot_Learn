@@ -29,7 +29,7 @@ public class VideoController {
      * 轮播图列表
      * @return
      */
-    @GetMapping("listVideoBanner")
+    @GetMapping("list_video_banner")
     public JsonData indexBanner(){
 
         List<VideoBanner> videoBannerList = videoService.listBanner();
@@ -41,7 +41,7 @@ public class VideoController {
      * 视频列表
      * @return
      */
-    @RequestMapping("listVideo")
+    @RequestMapping("list_video")
     public JsonData listVideo(){
 
         List<Video> videoList = videoService.listVideo();
@@ -53,7 +53,7 @@ public class VideoController {
      * @param videoId
      * @return
      */
-    @GetMapping("findDetailById")
+    @GetMapping("find_detail_by_id")
     public JsonData findDetailById(@RequestParam(value = "video_id") int videoId){
 
         Video video = videoService.findDetailById(videoId);

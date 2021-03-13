@@ -14,6 +14,7 @@ import net.peter.ssm.model.entity.VideoOrder;
 import net.peter.ssm.service.VideoOrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Date;
 import java.util.UUID;
@@ -41,6 +42,7 @@ public class VideoOrderServiceImpl implements VideoOrderService {
      * @return
      */
     @Override
+    @Transactional(rollbackFor = CustomException.class)
     public int saveVideoOrder(int userId, int videoId) {
 
         // 判断是否已经购买
