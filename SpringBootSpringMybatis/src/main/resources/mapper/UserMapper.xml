@@ -32,6 +32,6 @@
         select * from user where id=#{user_id}
 
     </select>
-    
+
     
 </mapper>
