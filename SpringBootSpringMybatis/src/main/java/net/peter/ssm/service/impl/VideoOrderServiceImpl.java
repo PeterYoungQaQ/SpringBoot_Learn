@@ -73,7 +73,7 @@ public class VideoOrderServiceImpl implements VideoOrderService {
             Episode episode = episodeMapper.findFirstEpisodeByVideoId(videoId);
 
             if (episode == null){
-                throw new CustomException(-1,"生成播放记录失败");
+                throw new CustomException(-1,"视频没有集信息");
             }
             PlayRecord playRecord = new PlayRecord();
 
