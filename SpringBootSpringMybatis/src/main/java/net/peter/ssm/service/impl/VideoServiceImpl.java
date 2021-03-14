@@ -71,8 +71,22 @@ public class VideoServiceImpl implements VideoService {
     @Override
     public Video findDetailById(int videoId) {
 
-        // 需要使用mybatis关联复杂查询
+        try {
+            String videoCacheKey = String.format(CacheKeyManager.VIDEO_DETAIL, videoId);
 
-        return videoMapper.findDetailById(videoId);
+            Object videoDetailCacheObject = baseCache.getOneHourCache().get(videoCacheKey, ()->{
+                        Video videoDetail = videoMapper.findDetailById(videoId);
+                        System.out.println("根据视频id从数据库中查找视频详情");
+                        return videoDetail;
+            });
+            if (videoDetailCacheObject instanceof Video){
+                return (Video) videoDetailCacheObject;
+            }
+
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
+        return null;
     }
 }

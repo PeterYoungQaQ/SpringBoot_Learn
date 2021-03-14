@@ -28,6 +28,20 @@ public class BaseCache {
             .recordStats()
             .build();
 
+    private Cache<String, Object> oneHourCache = CacheBuilder.newBuilder()
+            //设置缓存初始⼤大⼩小，应该合理理设置，后续会扩容
+            .initialCapacity(10)
+            //最⼤大值
+            .maximumSize(100)
+            //并发数设置
+            .concurrencyLevel(5)
+            //缓存过期时间，写⼊入后1小时过期
+            .expireAfterWrite(3600,TimeUnit.SECONDS)
+            //统计缓存命中率
+            .recordStats()
+            .build();
+
+
     public Cache<String, Object> getTenMinuteCache() {
         return tenMinuteCache;
     }
@@ -36,4 +50,11 @@ public class BaseCache {
         this.tenMinuteCache = tenMinuteCache;
     }
 
+    public Cache<String, Object> getOneHourCache() {
+        return oneHourCache;
+    }
+
+    public void setOneHourCache(Cache<String, Object> oneHourCache) {
+        this.oneHourCache = oneHourCache;
+    }
 }
