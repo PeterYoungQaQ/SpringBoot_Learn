@@ -5,10 +5,12 @@ package net.peter.ssm.service.impl;
  * @Description:
  */
 
+import net.peter.ssm.config.CacheKeyManager;
 import net.peter.ssm.dao.VideoMapper;
 import net.peter.ssm.model.entity.Video;
 import net.peter.ssm.model.entity.VideoBanner;
 import net.peter.ssm.service.VideoService;
+import net.peter.ssm.utils.BaseCache;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -20,6 +22,9 @@ public class VideoServiceImpl implements VideoService {
     @Autowired
     private VideoMapper videoMapper;
 
+    @Autowired
+    private BaseCache baseCache;
+
     @Override
     public List<Video> listVideo() {
         return videoMapper.listVideo();
@@ -27,7 +32,24 @@ public class VideoServiceImpl implements VideoService {
 
     @Override
     public List<VideoBanner> listBanner() {
-        return videoMapper.listVideoBanner();
+
+        try{
+            Object cacheObject = baseCache.getTenMinuteCache().get(CacheKeyManager.INDEX_BANNER_KEY, ()->{
+                        List<VideoBanner> bannerList = videoMapper.listVideoBanner();
+                        System.out.println("从数据库中找轮播图列表");
+                        return bannerList;
+                    });
+
+            if (cacheObject instanceof List){
+
+                return (List<VideoBanner>) cacheObject;
+            }
+            }
+                catch (Exception e){
+                e.printStackTrace();
+            }
+
+            return null;
     }
 
     @Override
