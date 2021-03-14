@@ -27,29 +27,45 @@ public class VideoServiceImpl implements VideoService {
 
     @Override
     public List<Video> listVideo() {
-        return videoMapper.listVideo();
+
+        try {
+            Object videoCacheObject = baseCache.getTenMinuteCache().get(CacheKeyManager.INDEX_VIDEO_LIST, () -> {
+                List<Video> videoList = videoMapper.listVideo();
+                System.out.println("从数据库中查找视频列表");
+                return videoList;
+            });
+
+            if (videoCacheObject instanceof List){
+                return (List<Video>) videoCacheObject;
+            }
+
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
+        // 可以返回兜底数据，业务系统降级
+        return null;
+
     }
 
     @Override
     public List<VideoBanner> listBanner() {
 
         try{
-            Object cacheObject = baseCache.getTenMinuteCache().get(CacheKeyManager.INDEX_BANNER_KEY, ()->{
+            Object bannerCacheObject = baseCache.getTenMinuteCache().get(CacheKeyManager.INDEX_BANNER_KEY, ()->{
                         List<VideoBanner> bannerList = videoMapper.listVideoBanner();
                         System.out.println("从数据库中找轮播图列表");
                         return bannerList;
                     });
 
-            if (cacheObject instanceof List){
+            if (bannerCacheObject instanceof List){
+                return (List<VideoBanner>) bannerCacheObject;
+            }
+        } catch (Exception e){
+            e.printStackTrace();
+        }
 
-                return (List<VideoBanner>) cacheObject;
-            }
-            }
-                catch (Exception e){
-                e.printStackTrace();
-            }
-
-            return null;
+        return null;
     }
 
     @Override
