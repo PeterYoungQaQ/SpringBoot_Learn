@@ -10,6 +10,8 @@ import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
+
 @Mapper
 @Component
 public interface VideoOrderMapper {
@@ -31,4 +33,11 @@ public interface VideoOrderMapper {
      * @return
      */
     int saveOrder(VideoOrder videoOrder);
+
+    /**
+     * 已下单视频列表
+     * @param userId
+     * @return
+     */
+    List<VideoOrder> listOrderByUserId(@Param("user_id") Integer userId);
 }

@@ -5,6 +5,10 @@ package net.peter.ssm.service;
  * @Description:
  */
 
+import net.peter.ssm.model.entity.VideoOrder;
+
+import java.util.List;
+
 public interface VideoOrderService {
 
     /**
@@ -14,4 +18,11 @@ public interface VideoOrderService {
      * @return
      */
     int saveVideoOrder(int userId, int videoId);
+
+    /**
+     * 根据用户id查询下单视频列表
+     * @param userId
+     * @return
+     */
+    List<VideoOrder> listOrderByUserId(Integer userId);
 }

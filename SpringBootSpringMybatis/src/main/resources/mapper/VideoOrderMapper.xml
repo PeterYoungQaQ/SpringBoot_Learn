@@ -23,5 +23,11 @@
 
     </insert>
 
+<!--    根据用户id查询已经下单的视频列表信息-->
+    <select id="listOrderByUserId" resultType="VideoOrder">
+
+        select * from video_order where user_id = #{user_id} order by create_time desc
+
+    </select>
 
 </mapper>
