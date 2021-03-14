@@ -30,7 +30,7 @@ public class BaseCache {
 
     private Cache<String, Object> oneHourCache = CacheBuilder.newBuilder()
             //设置缓存初始⼤大⼩小，应该合理理设置，后续会扩容
-            .initialCapacity(10)
+            .initialCapacity(30)
             //最⼤大值
             .maximumSize(100)
             //并发数设置
