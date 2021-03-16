@@ -5,6 +5,7 @@ package net.peter.ssm.interceptor;
  * @Description:
  */
 
+import org.springframework.http.HttpMethod;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -26,6 +27,11 @@ public class CorsInterceptor implements HandlerInterceptor {
                 "GET, HEAD, POST, PUT, PATCH, DELETE, OPTIONS");
 
         response.setHeader("Access-Control-Allow-Headers", "*");
+
+        if (HttpMethod.OPTIONS.toString().equals(request.getMethod())){
+
+            return true;
+        }
 
         return true;
     }
