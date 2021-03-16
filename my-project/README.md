@@ -2,7 +2,7 @@
  * @Description: 
  * @Author: PeterYoung
  * @Date: 2021-03-16 23:14:46
- * @LastEditTime: 2021-03-16 23:26:46
+ * @LastEditTime: 2021-03-16 23:28:02
  * @LastEditors: PeterYoung
 -->
 # my-project
@@ -30,4 +30,3 @@ npm run lint
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
 
-hello
