@@ -33,7 +33,10 @@ public class InterceptorConfig implements WebMvcConfigurer {
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
 
-        registry.addInterceptor(corsInterceptor()).addPathPatterns("/api/v1/pri/*/*/**");
+        /**
+         * 拦截全部配置，这个跨域要放在最上面
+         */
+        registry.addInterceptor(corsInterceptor()).addPathPatterns("/**");
 
         //拦截全部
         registry.addInterceptor(loginInterceptor()).addPathPatterns("/api/v1/pri/*/*/**")
